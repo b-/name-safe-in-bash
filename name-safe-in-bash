@@ -15,9 +15,14 @@ output_commands_found_in_path(){
   for directory in `echo $PATH | sed 's/:/ /g'`; do
     ls -A $directory 2>/dev/null; done;}
 
-output_name_if_known_to_dnf(){ dnf provides "$1" >/dev/null 2>&1 && echo "$1";}
-output_name_if_known_to_yum(){ yum provides "$1" >/dev/null 2>&1 && echo "$1";}
-output_name_if_known_to_zypper(){ zypper what-provides "$1" >/dev/null 2>&1 && echo "$1";}
+output_name_if_known_to_dnf(){
+  dnf --assumeno provides "$1" >/dev/null 2>&1 && echo "$1";}
+
+output_name_if_known_to_yum(){
+  yum --assumeno provides "$1" >/dev/null 2>&1 && echo "$1";}
+
+output_name_if_known_to_zypper(){
+  zypper --non-interactive what-provides "$1" >/dev/null 2>&1 && echo "$1";}
 
 output_names_for_edit_distance_comparision() {
   local -r proposed_name="$1"

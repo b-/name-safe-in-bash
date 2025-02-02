@@ -71,9 +71,10 @@ may be spun up as another project.
 
 === CHANGELOG ===
 
+v1.2.0: fix package manager interactivity hangups
 v1.1.2: minor documentation improvement
 v1.1.1: improved documentation
-v1.1.0: package manager integration bug fix
+v1.1.0: package manager integration bug fix to actually test proposed name
 v1.0.2: minor doc grammar fix
 v1.0.1: minor documentation fix
 v1.0.0: initial implementation
